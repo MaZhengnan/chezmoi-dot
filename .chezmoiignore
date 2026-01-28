@@ -1,0 +1,57 @@
+# chezmoi
+.chezmoi.*
+.config/chezmoi/
+
+# documentation
+*.md
+*.org
+
+
+# Runtime generated files
+.config/fcitx5/conf/cached_layouts
+.config/fcitx5/conf/notifications.conf
+.config/fcitx5/profile
+
+.config/abrt/
+.config/DankMaterialShell/
+.config/azote/
+.config/gtk-3.0/
+.config/gtk-4.0/
+.config/ibus/
+.config/imsettings/
+.config/Mousepad/
+.config/mozilla/
+.config/opencode/
+.config/systemd/
+.config/volumeicom/
+.config/wallpapers/
+.config/xfce4/
+.config/xsettingsd/
+
+.config/mimeapps.list
+.config/sealert.conf
+.config/user-dirs.dirs
+.config/user-dirs.locale
+
+
+# Emacs cache and package directories (don't track downloaded packages)
+.emacs.d/eln-cache/
+.emacs.d/elppa/
+.emacs.d/elpa/
+.emacs.d/auto-save-list/
+.emacs.d/savefile/
+.emacs.d/transient/
+.emacs.d/tree-sitter/
+.emacs.d/history
+.emacs.d/recentf
+.emacs.d/tramp
+.emacs.d/places
+.emacs.d/snippets/
+
+# .ssh folder and ignore key files
+.ssh/gitee
+.ssh/gitee.pub
+.ssh/github
+.ssh/github.pub
+.ssh/known_hosts
+.ssh/known_hosts.old

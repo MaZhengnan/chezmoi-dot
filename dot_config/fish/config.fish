@@ -1,0 +1,36 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
+# starship
+starship init fish | source
+
+# make Alt + l to accept current suggestion like using right arrow
+bind \el forward-char
+
+# Aliases
+if [ -f $HOME/.config/fish/alias.fish ]
+    source $HOME/.config/fish/alias.fish
+end
+if command -v fish_add_path >/dev/null
+    fish_add_path ~/.local/bin
+else
+    # 兼容旧版本
+    set -gx PATH ~/.local/bin $PATH
+end
+function fish_greeting
+    random choice "Hi MZN!"
+end
+
+# Android Studio
+set -x ANDROID_HOME $HOME/Android/Sdk
+set -x PATH $PATH $ANDROID_HOME/emulator
+set -x PATH $PATH $ANDROID_HOME/platform-tools
+
+# do not use slow default handle when not the command we typed not found
+function fish_command_not_found
+    __fish_default_command_not_found_handler $argv
+end
+# 在 Fish shell 中直接运行
+set -gx PATH /home/mzn/.opencode/bin $PATH
+#set -gx PATH /home/mznmzn/.opencode/bin $PATH

@@ -1,0 +1,84 @@
+#+TITLE: Dotfiles managment file (Using chezmoi)
+#+AUTHOR: ZhengnanMa(MZN)
+#+OPTIONS: toc:2
+
+
+* Table of Content :toc:
+
+
+* Getting start
+** Introduction
+This is the configuration file for =feroda 43= distro. And I am using the =i3= version.
+I am using the =greetd, tuigreet= to manage the startup of =niri= and =i3=.
+I am using the =chezmoi= to manage dotfiles.
+ 
+** Installation
+Install the basic packages for applying my dotfiles.
+#+begin_src shell
+sudo dnf update
+# install packages for first use
+sudo dnf install -y \
+         curl \
+         wget \
+         git \
+         chezmoi
+#+end_src
+
+Chezmoi initialize.
+#+begin_src shell
+chezmoi init https://github.com/MaZhengnan/chezmoi-dot.git
+#+end_src
+
+Install other packages.
+#+begin_src shell
+sudo dnf update
+# install packages for first use
+sudo dnf install -y \
+     # general tools
+     libnotify blueman pavucontrol brightnessctl network-manager-applet dnsmasq\
+     # file manager
+     thunder \ 
+     # i3wm related
+     conky dunst picom polybar \
+     # niri related
+     niri waybar sway-lock fuzzel mako xwayland-satellite xdg-desktop-portal-gnome  \
+      polkit-gnome \
+     # shell
+     fish kitty \
+     # fonts
+     google-noto-cjk-fonts wqy-microhei-fonts \
+     # editor
+     emacs neovim \
+     # input method
+     fcitx5 fcitx5-qt fcitx5-gtk3 fcitx5-rime 
+     
+#+end_src
+
+Apply dotfiles.
+#+begin_src shell
+chezmoi apply
+#+end_src
+
+Git initialize. Then I can use git ssh to manage the chezmoi repository.
+#+begin_src shell
+ssh-keygen -t ed25519 -f ~/.ssh/github
+ssh-keygen -t ed25519 -f ~/.ssh/gitee
+# Copy the key into github and gitee
+ssh -T -v git@github.com
+ssh -T -v git@gitee.com
+#+end_src
+
+
+* Configuration
+General packages:
+=libnotify=: 
+=libnotify=: 
+=libnotify=: 
+=libnotify=: 
+=libnotify=: 
+=libnotify=: 
+=libnotify=: 
+=libnotify=: 
+=libnotify=: 
+=libnotify=: 
+=libnotify=: 
