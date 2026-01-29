@@ -51,6 +51,8 @@
   :init (which-key-mode)
   :config
   (setq which-key-idle-delay 0.5)
-  (setq which-key-side-window-location 'bottom))
+  (setq which-key-min-display-lines 3)
+  (setq which-key-side-window-location 'bottom)
+  (setq which-key-separator " → " ))
 
 (provide 'init-ui)

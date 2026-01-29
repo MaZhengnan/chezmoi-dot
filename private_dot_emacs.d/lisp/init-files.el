@@ -6,8 +6,8 @@
   :custom
   (dirvish-quick-access-entries
    '(("h" "~/"                          "Home")
-     ("d" "~/Downloads/"                "Downloads")
-     ("c" "~/.dotfiles/.emacs.d/efs/"   "Config")
+     ("d" "~/.local/share/chezmoi/"     "Dotfiles")
+     ("e" "~/.local/share/chezmoi/private_dot_emacs.d"   "Emacs Config")
      ("p" "~/Projects/"                 "Projects")))
   (dirvish-mode-line-format
    '(:left (sort symlink) :right (omit yank index)))

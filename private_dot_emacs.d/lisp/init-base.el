@@ -48,6 +48,7 @@
 
 ;; 记住上次打开文件时的光标位置
 (save-place-mode 1)
+(blink-cursor-mode -1)
 
 ;; ----- 自动补全括号 -----
 (electric-pair-mode 1) ; 自动补全成对的括号

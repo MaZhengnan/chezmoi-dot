@@ -4,7 +4,14 @@
 
 
 * Table of Content :toc:
-
+- [[#getting-start][Getting start]]
+  - [[#introduction][Introduction]]
+  - [[#installation][Installation]]
+- [[#configuration][Configuration]]
+  - [[#packages][Packages]]
+  - [[#i3wm][I3wm]]
+  - [[#niri][Niri]]
+  - [[#input-method][Input Method]]
 
 * Getting start
 ** Introduction
@@ -37,12 +44,12 @@ sudo dnf install -y \
      # general tools
      libnotify blueman pavucontrol brightnessctl network-manager-applet dnsmasq\
      # file manager
-     thunder \ 
+     thunar \ 
      # i3wm related
-     conky dunst picom polybar \
+     conky dunst picom polybar rofi\
      # niri related
-     niri waybar sway-lock fuzzel mako xwayland-satellite xdg-desktop-portal-gnome  \
-      polkit-gnome \
+     niri waybar sway-lock swaybg fuzzel mako xwayland-satellite
+     xdg-desktop-portal-gnome polkit-gnome \
      # shell
      fish kitty \
      # fonts
@@ -70,15 +77,40 @@ ssh -T -v git@gitee.com
 
 
 * Configuration
-General packages:
-=libnotify=: 
-=libnotify=: 
-=libnotify=: 
-=libnotify=: 
-=libnotify=: 
-=libnotify=: 
-=libnotify=: 
-=libnotify=: 
-=libnotify=: 
-=libnotify=: 
-=libnotify=: 
+** Packages
+*General packages:*
+=libnotify=: An application library for sending desktop notifications.
+=blueman=: Bluetooth manager. 
+=pavucontrol=: Full name is 'Pulse Audio Volume Control', a sample PulseAudio mixer. 
+=brightnessctl=: A powerful command-line tool designed to help users easily read and adjust the brightness of their devices.
+=network-manager-applet=: A GTK‐based GUI applet to monitor network status and devices and to start and stop network connections managed by NetworkManager. 
+=dnsmasq=: A small and convenient tool for configuring DNS and DHCP.
+=thunar=: File manager(Both i3wm and niri).
+
+*I3wm*:
+=conky=: System monitoring software for X11 Window System.
+=dunst=: Linux desktop notification daemon for X11 or xWayland.
+=picom=: A lightweight compositing manager that primarily provides smooth animations and semi-transparency effects for the X11 windowing system.
+=polybar=: A tool that allows to create status bars easily and quickly.
+=rofi=: Rofi is a window switcher, run dialog, SSH launcher, and an alternative to dmenu. 
+
+*Niri:*
+=niri=: Wayland window manager.
+=waybar=: Like polybar on wayland.
+=sway-lock=: Screen lock. TODO: Don't has clock and background, fix it!
+=swaybg=: Setup desktop background picture.
+=fuzzel=: Like rofi on wayland. Another one is wofi.
+=mako=: Like dunst on wayland.
+=xwayland-satellite=: Running x11 programs.
+=xdg-desktop-portal-gnome=: The desktop portal recommended by Niri, providing features such as file selection and screen sharing.
+=polkit-gnome=: Other software will request permissions through this software.
+
+*Shell:*
+=fish=: A Unix-like shell with a focus on interactivity and usability.
+=kitty=: A scriptable OpenGL based terminal emulator with TrueColor, 
+
+** I3wm
+
+** Niri
+
+** Input Method

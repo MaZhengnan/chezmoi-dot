@@ -19,16 +19,32 @@
   ;; Auto-save Org buffers after refiling
   (advice-add 'org-refile :after 'org-save-all-org-buffers))
 
+(custom-set-faces
+ '(org-level-1 ((t (:inherit outline-1 :height 1.5))))
+ '(org-level-2 ((t (:inherit outline-2 :height 1.4))))
+ '(org-level-3 ((t (:inherit outline-3 :height 1.3))))
+ '(org-level-4 ((t (:inherit outline-4 :height 1.2))))
+ '(org-level-5 ((t (:inherit outline-5 :height 1.1))))
+ '(org-level-6 ((t (:inherit outline-5 :height 1.1))))
+ '(org-level-7 ((t (:inherit outline-5 :height 1.1)))))
+
 ;; ----- Org Modern (Beautification) -----
 (use-package org-modern
   :hook (org-mode . org-modern-mode)
   :config
   (setq org-modern-star '("◉" "○" "◈" "◇" "✳" "wl" "▾" "▹"))
-  (setq org-modern-list '((43 . "➤") (45 . "–") (42 . "•")))
+  (setq org-modern-list '((45 . "➤") (42 . "–") (43 . "•")))
   (setq org-modern-tag t)
   (setq org-modern-priority t)
   (setq org-modern-todo t)
   (setq org-modern-table t))
+
+
+(use-package toc-org
+  :commands toc-org-enable
+  :init (add-hook 'org-mode-hook 'toc-org-enable))
+
+(require 'org-tempo)
 
 ;; ----- Org Roam (Optional - Knowledge Management) -----
 ;; Uncomment if you need Zettelkasten features

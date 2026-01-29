@@ -35,11 +35,9 @@
     "dc" '(docker-containers :which-key "List Containers")
     "di" '(docker-images :which-key "List Images")
 
-    ;; e - Explorer
-    "e" '(dirvish-side :which-key "Toggle Explorer")
-    
     ;; f - File
     "f"  '(:ignore t :which-key "File")
+    "fd" '(dirvish-quick-access :which-key "Dirvish Quick")
     "ff" '(find-file :which-key "Find file")
     "fs" '(save-buffer :which-key "Save file")
     "fr" '(recentf-open-files :which-key "Recent files")
@@ -50,7 +48,7 @@
     "wm" '(delete-other-windows :which-key "Maximize")
     "w/" '(split-window-right :which-key "Split right")
     "w-" '(split-window-below :which-key "Split below")
-    "wd" '(delete-window :which-key "Delete window")
+    "wc" '(delete-window :which-key "Close window")
     "ww" '(other-window :which-key "Next window")
     "wh" '(evil-window-left :which-key "Window left")
     "wl" '(evil-window-right :which-key "Window right")
@@ -85,6 +83,7 @@
     
     ;; t - Toggle
     "t"  '(:ignore t :which-key "Toggle")
+    "te" '(dirvish-side :which-key "Toggle Explorer")
     "tl" '(display-line-numbers-mode :which-key "Toggle line numbers")))
 
 (provide 'init-keys)

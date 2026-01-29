@@ -1,3 +1,4 @@
+
 ;;; init-evil.el --- Vim 模拟配置 -*- lexical-binding: t -*-
 
 ;; ----- Evil 核心 -----
@@ -9,6 +10,12 @@
   (setq evil-want-C-u-scroll t)   ; 允许使用 C-u 向上滚动
   (setq evil-undo-system 'undo-redo) ; 使用 Emacs 28+ 原生的 undo-redo
   
+  (setq evil-emacs-state-cursor  '("green" box))
+  (setq evil-normal-state-cursor '("green" box))
+  (setq evil-visual-state-cursor '("green" hbar))
+  (setq evil-insert-state-cursor '("green" bar))
+  (setq evil-motion-state-cursor '("green" box))
+
   :config
   (evil-mode 1)
   
@@ -41,5 +48,14 @@
 (use-package evil-surround
   :config
   (global-evil-surround-mode 1))
+
+(use-package evil-escape
+  :after evil
+  :custom
+  (evil-escape-key-sequence "jk")  ; 按 j 然后快速按 k
+  (evil-escape-delay 0.5)
+  :config
+  (evil-escape-mode 1))
+
 
 (provide 'init-evil)
