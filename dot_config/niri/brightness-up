@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+brightnessctl -d amdgpu_bl1 set +5%
