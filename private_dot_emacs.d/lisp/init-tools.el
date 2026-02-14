@@ -12,11 +12,12 @@
               ("M-DEL" . vertico-directory-delete-word))
   :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
 
-;; Vertico Posframe: Center the UI
+;; Vertico Posframe: Center the UI (GUI only)
 (use-package vertico-posframe
   :after vertico
   :init
-  (vertico-posframe-mode 1)
+  (when (display-graphic-p)
+    (vertico-posframe-mode 1))
   :config
   (setq vertico-posframe-poshandler #'posframe-poshandler-frame-center)
   (setq vertico-posframe-parameters

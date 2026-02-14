@@ -21,6 +21,7 @@
 (require 'init-keys)  ; 6. Keybindings (English)
 (require 'init-tools) ; 7. Tools (Vertico Center, Magit)
 (require 'init-prog)  ; 8. Programming (LSP, Treesitter, Formatting)
+(require 'init-build) ; 8.5 Build, Run, Debug System
 (require 'init-org)   ; 9. Org Mode
 (require 'init-containers) ; 10. Docker/Podman
 

@@ -26,6 +26,7 @@ This document serves as a context file for AI agents to understand the structure
 | `init-keys.el` | Key definitions | `general` |
 | `init-tools.el` | Utilities | `vertico`, `corfu`, `magit`, `yasnippet`, `restart-emacs` |
 | `init-prog.el` | Coding | `eglot`, `treesit-auto`, `apheleia` |
+| `init-build.el` | Build/Run/Debug | `cmake-mode`, `gdb`, universal lang commands |
 | `init-org.el` | Org Mode | `org-modern`, `org-indent` |
 | `init-files.el` | File Explorer | `dirvish` (configured as sidebar) |
 | `init-containers.el`| Container Dev | `docker.el`, `tramp` (configured for Podman) |
@@ -38,8 +39,13 @@ This document serves as a context file for AI agents to understand the structure
     - `SPC e`: File Explorer (Dirvish Sidebar)
     - `SPC .` / `SPC f f`: Find File
     - `SPC c f`: Format Buffer
+    - `SPC c b`: Build current file (auto-detect language)
+    - `SPC c r`: Run current file (auto-detect language)
+    - `SPC c d`: Debug current file (auto-detect language)
+    - `SPC c t`: Run tests (auto-detect language)
     - `SPC o a`: Org Agenda
     - `SPC d`: Podman/Docker Menu
+    - `SPC d e`: Enter container (dired)
     - `SPC w`: Window Management (`w/`, `w-`, `wd`, `wm`, `ww`, `w=`)
     - `SPC q`: Quit/Restart
 
@@ -47,6 +53,16 @@ This document serves as a context file for AI agents to understand the structure
 - **LSP**: Built-in `Eglot` is used.
 - **Treesitter**: `treesit-auto` handles grammar installation and mode mapping automatically.
 - **Formatting**: `apheleia` handles auto-formatting on save/demand.
+- **Build/Run/Debug**: Universal language commands (`init-build.el`) with:
+  - CMake integration for C/C++ (configure, build, run, debug)
+  - GDB debugging support
+  - Language-agnostic commands that auto-detect language
+  - Works in both local and Tramp/Docker environments
+- **Supported Languages**:
+  - **C/C++**: CMake-based builds, GDB debugging
+  - **Python**: Direct execution, pytest, pdb debugging
+  - **Rust**: Cargo-based builds, lldb debugging
+  - **CUDA**: Basic LSP support via clangd
 - **Containers**: `init-containers.el` forces `docker.el` to use the `podman` binary. TRAMP is configured for `/podman:container:/path` access.
 
 ## 6. Maintenance Notes
@@ -55,6 +71,11 @@ This document serves as a context file for AI agents to understand the structure
 - **Testing**: Can use `emacs --init-directory ~/.emacs.d/efs --batch` to verify load capability.
 
 ## 7. Recent Modifications (Log)
+- **Build System**: Added `init-build.el` with universal language commands (build/run/debug/test)
+- **CMake Integration**: Full CMake support (configure, build, run targets)
+- **Debugger Integration**: GDB for C/C++, pdb for Python, lldb for Rust
+- **Universal Keys**: `SPC c b/r/d/t` works across all supported languages
+- **Container Dev**: Added quick start and enter commands for podman containers
 - **Dirvish**: Configured as left-sidebar (`treemacs`-like).
 - **Vertico**: Enabled directory navigation with Backspace.
 - **Podman**: Fixed binary path to `podman`.

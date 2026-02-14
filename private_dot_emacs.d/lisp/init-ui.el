@@ -10,19 +10,36 @@
 ;; ----- Fonts -----
 ;; Set default font to JetBrainsMono Nerd Font
 (defun efs/set-font-faces ()
-  (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 140)
-  
-  ;; Set Chinese/CJK font
-  ;; Adjust "Noto Sans CJK SC" to your preferred installed CJK font if needed
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font)
-                      charset
-                      (font-spec :family "Noto Sans CJK SC" :size 16))))
+  (when (display-graphic-p)
+    (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 140)
+    
+    ;; Set Chinese/CJK font
+    ;; Adjust "Noto Sans CJK SC" to your preferred installed CJK font if needed
+    (dolist (charset '(kana han symbol cjk-misc bopomofo))
+      (set-fontset-font (frame-parameter nil 'font)
+                        charset
+                        (font-spec :family "Noto Sans CJK SC" :size 16)))))
 
 ;; Apply font settings on startup and when creating a new frame
 (if (daemonp)
     (add-hook 'after-make-frame-functions (lambda (frame) (with-selected-frame frame (efs/set-font-faces))))
   (efs/set-font-faces))
+
+;; ----- Cursor -----
+(when (display-graphic-p)
+  ;; GUI cursor settings
+  (setq-default cursor-type 'bar)
+  (set-cursor-color "#ffffff"))
+
+;; Terminal cursor support (for kitty and other modern terminals)
+(when (not (display-graphic-p))
+  ;; Use terminal escape sequences to set cursor color
+  (defun my-terminal-set-cursor-color (color)
+    "Set cursor color in terminal using escape sequences."
+    (send-string-to-terminal (format "\e]12;%s\a" color)))
+  
+  ;; Set cursor color for kitty terminal
+  (my-terminal-set-cursor-color "#ffffff"))
 
 ;; ----- Modeline -----
 (use-package doom-modeline

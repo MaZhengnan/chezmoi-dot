@@ -28,12 +28,18 @@
     ;; c - Code
     "c"  '(:ignore t :which-key "Code")
     "cf" '(apheleia-format-buffer :which-key "Format buffer")
+    "cb" '(my/build-current-file :which-key "Build")
+    "cr" '(my/run-current-file :which-key "Run")
+    "cd" '(my/debug-current-file :which-key "Debug")
+    "ct" '(my/test-current-file :which-key "Test")
 
     ;; d - Docker/Podman
     "d"  '(:ignore t :which-key "Docker/Podman")
     "dd" '(docker :which-key "Docker Menu")
     "dc" '(docker-containers :which-key "List Containers")
     "di" '(docker-images :which-key "List Images")
+    "ds" '(my/podman-start-container :which-key "Start Container")
+    "de" '(my/podman-dired-container :which-key "Enter Container")
 
     ;; f - File
     "f"  '(:ignore t :which-key "File")
