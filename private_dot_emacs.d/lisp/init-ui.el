@@ -34,12 +34,16 @@
 ;; Terminal cursor support (for kitty and other modern terminals)
 (when (not (display-graphic-p))
   ;; Use terminal escape sequences to set cursor color
-  (defun my-terminal-set-cursor-color (color)
-    "Set cursor color in terminal using escape sequences."
-    (send-string-to-terminal (format "\e]12;%s\a" color)))
+  ;; (defun my-terminal-set-cursor-color (color)
+  ;;   "Set cursor color in terminal using escape sequences."
+  ;;   (send-string-to-terminal (format "\e]12;%s\a" color)))
   
-  ;; Set cursor color for kitty terminal
-  (my-terminal-set-cursor-color "#ffffff"))
+  ;; ;; Set cursor color for kitty terminal
+  ;; (my-terminal-set-cursor-color "#ffffff")
+  (use-package evil-terminal-cursor-changer)
+  (require 'evil-terminal-cursor-changer)
+  (evil-terminal-cursor-changer-activate) ; or (etcc-on)
+  ) 
 
 ;; ----- Modeline -----
 (use-package doom-modeline
