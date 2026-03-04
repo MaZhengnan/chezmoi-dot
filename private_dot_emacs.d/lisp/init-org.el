@@ -44,6 +44,16 @@
   :commands toc-org-enable
   :init (add-hook 'org-mode-hook 'toc-org-enable))
 
+;; ----- Org Appear (Show symbols at cursor position) -----
+(use-package org-appear
+  :hook (org-mode . org-appear-mode)
+  :config
+  (setq org-appear-autolinks t)
+  (setq org-appear-autosubmarkers t)
+  (setq org-appear-autoentities t)
+  (setq org-appear-autokeywords t)
+  (setq org-appear-inside-latex t))
+
 (require 'org-tempo)
 
 ;; ----- Org Roam (Optional - Knowledge Management) -----

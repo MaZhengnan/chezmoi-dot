@@ -80,6 +80,7 @@
     "pf" '(projectile-find-file :which-key "Find file in project")
     "ps" '(projectile-switch-project :which-key "Switch project")
     "pr" '(projectile-replace :which-key "Replace in project")
+    "pg" '(my/projectile-rg :which-key "Grep in project")
     
     ;; h - Help
     "h"  '(:ignore t :which-key "Help")
@@ -90,6 +91,7 @@
     ;; t - Toggle
     "t"  '(:ignore t :which-key "Toggle")
     "te" '(dirvish-side :which-key "Toggle Explorer")
-    "tl" '(display-line-numbers-mode :which-key "Toggle line numbers")))
+    "tl" '(display-line-numbers-mode :which-key "Toggle line numbers")
+    "tt" '(my/vterm-toggle :which-key "Toggle VTerm")))
 
 (provide 'init-keys)

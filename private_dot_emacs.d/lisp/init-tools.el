@@ -9,7 +9,9 @@
   :bind (:map vertico-map
               ("RET" . vertico-directory-enter)
               ("DEL" . vertico-directory-delete-char)
-              ("M-DEL" . vertico-directory-delete-word))
+              ("M-DEL" . vertico-directory-delete-word)
+              ("C-j" . vertico-next)
+              ("C-k" . vertico-previous))
   :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
 
 ;; Vertico Posframe: Center the UI (GUI only)
@@ -91,7 +93,35 @@
   :init
   (setq projectile-switch-project-action #'projectile-dired))
 
+;; ----- Ripgrep (Project Search) -----
+(use-package ripgrep
+  :commands (rg))
+
+(defun my/projectile-rg ()
+  "Search in project using ripgrep with consult."
+  (interactive)
+  (consult-ripgrep projectile-project-root))
+
 ;; ----- Restart Emacs -----
 (use-package restart-emacs)
+
+;; ----- VTerm (Terminal Emulator) -----
+(use-package vterm
+  :commands vterm
+  :config
+  (setq vterm-kill-buffer-on-exit t)
+  (setq vterm-max-scrollback 10000)
+  (setq vterm-shell "fish")
+  :bind ("C-c t" . vterm))
+
+(defun my/vterm-toggle ()
+  "Toggle vterm buffer."
+  (interactive)
+  (let ((vterm-buffer (get-buffer "*vterm*")))
+    (if (and vterm-buffer (buffer-live-p vterm-buffer))
+        (if (eq (current-buffer) vterm-buffer)
+            (kill-buffer vterm-buffer)
+          (switch-to-buffer vterm-buffer))
+      (vterm))))
 
 (provide 'init-tools)
